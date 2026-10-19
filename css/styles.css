@@ -159,7 +159,7 @@ a {
   gap: 14px;
   padding: 0 14px;
   overflow: hidden;
-  opacity: .9
+  opacity: 1
 }
 
 .wall .col {
@@ -196,7 +196,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 247, 242, .55), rgba(255, 247, 242, .82) 60%, rgba(255, 247, 242, .95))
+  background: linear-gradient(180deg, rgba(255, 247, 242, .45), rgba(255, 247, 242, .82) 80%, rgba(255, 247, 242, .95))
 }
 
 .login-card {
