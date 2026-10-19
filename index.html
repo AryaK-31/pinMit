@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <title>Pinned on Mitali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Caveat:wght@500;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
+</head>
+<body>
+<!-- ============ LOGIN ============ -->
+<section id="login" class="screen" aria-label="Log in">
+  <div class="wall" id="wall" aria-hidden="true"></div>
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <div class="logo" aria-label="Pinned on Mitali"><svg width="30" height="34" viewBox="0 0 30 34" aria-hidden="true"><path d="M15 27 C6 20 1 15 1 9 A7 7 0 0 1 15 6 A7 7 0 0 1 29 9 C29 15 24 20 15 27Z" fill="#e3256b"/><circle cx="10" cy="9.5" r="2.4" fill="#fff" opacity=".7"/><rect x="14" y="26" width="2" height="8" rx="1" fill="#2b1d24"/></svg><span>Pinned on <b>Mitali</b></span></div>
+    <h1>Welcome back, Tingu</h1>
+    <p class="sub">Log in to see 24 years of pins</p>
+    <div class="field"><label for="email">Account</label><input id="email" value="mitali.nighoskar · turning 24" readonly></div>
+    <div class="field"><label for="pw">Password</label><input id="pw" type="password" placeholder="It's one of your qualities…" autocapitalize="off" spellcheck="false"></div>
+    <div class="reply" id="reply" aria-live="polite"></div>
+    <div class="hints" id="hints"></div>
+    <button class="btn btn-accent" type="submit" id="loginBtn">Log in</button>
+    <button class="forgot" type="button" id="forgot">Forgot password?</button>
+    <div class="tries" id="tries"></div>
+  </form>
+</section>
+
+<!-- ============ CAKE ============ -->
+<section id="cake" class="screen" hidden aria-label="Birthday cake">
+  <div class="cake-wrap gut">
+    <h2>Happy Birthday, Tingu</h2>
+    <p>24 candles. Tap or swipe across the flames to blow them out.</p>
+    <svg id="cakeSvg" viewBox="0 0 360 300" role="img" aria-label="A pink birthday cake with 24 candles"></svg>
+    <div class="count" id="count">24 candles left</div>
+    <div class="wish" id="wish" aria-live="polite"></div>
+    <button class="ghost" id="cheat" type="button" hidden>My fingers are tired, blow them all</button>
+  </div>
+</section>
+
+<!-- ============ POEM ============ -->
+<section id="poem" class="screen" hidden aria-label="A poem from Buddhu">
+  <div class="poem-wrap gut">
+    <div class="poem-stage">
+      <div class="distance-art" aria-hidden="true">
+        <svg viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M230 240 Q600 0 970 240"/><circle cx="230" cy="240" r="5"/><circle cx="970" cy="240" r="5"/></svg>
+        <div class="distance-label">10,037 km apart <span>Pune ↔ Sydney</span></div>
+      </div>
+      <div class="poem-person buddhu" role="img" aria-label="Buddhu photo placeholder">
+        <div class="mock-portrait"><span>B</span></div>
+        <div class="person-caption"><b>Buddhu</b><span>photo placeholder</span></div>
+      </div>
+      <div class="poem-person mitali" role="img" aria-label="Mitali photo placeholder">
+        <div class="mock-portrait"><span>M</span></div>
+        <div class="person-caption"><b>Mitali</b><span>photo placeholder</span></div>
+      </div>
+      <div class="poem-content">
+        <div class="poem-eyebrow">For the poet · from Buddhu</div>
+        <div class="poem" id="poemText" lang="hi"></div>
+        <div class="note" id="note">
+          <h3>Happy 24th Birthday, Tingu 🎂</h3>
+          <p>Thank you for starting with one random chat on 20 July at IDP and staying in my life ever since. Here's to more pasta dates, more salsa nights, more Monica-and-Chandler moments, and a whole lifetime of us.</p>
+          <p class="sign">Forever yours,<br>Bandar 🐒</p>
+        </div>
+        <div class="poem-actions" id="poemActions" hidden>
+          <button class="btn btn-accent" id="toFeed" type="button">See your pins →</button>
+        </div>
+        <button class="ghost" id="skipPoem" type="button" style="color:var(--accent-ink)">Show the whole poem</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<div id="app" hidden>
+  <header class="top gut">
+    <a class="logo" href="#" id="homeLogo" aria-label="Pinned on Mitali, home"><svg width="26" height="30" viewBox="0 0 30 34" aria-hidden="true"><path d="M15 27 C6 20 1 15 1 9 A7 7 0 0 1 15 6 A7 7 0 0 1 29 9 C29 15 24 20 15 27Z" fill="#e3256b"/><circle cx="10" cy="9.5" r="2.4" fill="#fff" opacity=".7"/><rect x="14" y="26" width="2" height="8" rx="1" fill="#2b1d24"/></svg><span class="word">Pinned on <b>Mitali</b></span></a>
+    <nav class="nav" aria-label="Main">
+      <button data-view="feed" aria-current="page">Home</button>
+      <button data-view="story">Our Story</button>
+    </nav>
+    <label class="search"><span hidden>Search</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search for pasta, prettiest girl, Buddhu…" enterkeyhint="search">
+    </label>
+    <button class="icon-btn" id="bell" aria-label="Notifications" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6V11a7 7 0 0 0-5-6.7V4a2 2 0 1 0-4 0v.3A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg>
+      <span class="badge" id="nbadge">8</span>
+    </button>
+    <button class="icon-btn" data-view="profile" aria-label="Your profile"><img class="avatar" src="img/m14.jpg" alt=""></button>
+  </header>
+
+  <main class="gut">
+    <section id="v-feed">
+      <div class="chips" id="chips" role="toolbar" aria-label="Boards"></div>
+      <div class="hero" id="hero" data-pin="pus"><div class="pin-media" style="border-radius:0;background:none" tabindex="0" role="button" aria-label="Open the highlight pin: Tingu and Buddhu"><img src="img/us.jpg" alt="Tingu and Buddhu leaning on a vintage car at sunset"><div class="hero-txt"><span class="k">Today's top pin · Now showing</span><h2>Tingu &amp; Buddhu</h2><p>A love story in two time zones. Main characters since 22 Nov 2025.</p><span class="hand">Same frame, same sunset, same team.</span></div></div></div>
+      <div id="searchBanner"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+    <section id="v-story" hidden></section>
+    <section id="v-profile" hidden></section>
+  </main>
+
+  <footer class="gut">
+    <span>Tingu's time, Pune <b id="tPune">--:--</b> · Buddhu's time, Sydney <b id="tSyd">--:--</b></span>
+    <span>Made with love by Buddhu, 10,037 km away</span>
+  </footer>
+</div>
+
+<div class="notif" id="notif" hidden role="dialog" aria-label="Notifications"></div>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

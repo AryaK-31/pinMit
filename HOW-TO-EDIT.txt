@@ -1,0 +1,49 @@
+PINNED ON MITALI · how to edit
+================================
+
+WHAT'S IN THIS FOLDER
+  index.html   page content and structure
+  css/         styles.css contains the site's visual design
+  js/          data.js contains editable boards, pins, poem and messages
+               app.js contains the interactions and rendering behavior
+  img/         all the photos (m01-m19 are her solo photos, plus concert,
+               bowling, booth, us and movie-night)
+
+HOW TO PREVIEW
+  Keep these files and folders together. Double-click index.html to open
+  it in Chrome, Edge or Safari. Edit with any text editor (VS Code is
+  easiest), save, and refresh the browser.
+
+  TIP: after logging in once, the browser remembers it and skips the
+  password game. To see the login again, use a private/incognito window.
+
+WHERE THINGS ARE
+  css/styles.css   colours, layout, typography and responsive styles
+  index.html       login, birthday moments, feed and navigation markup
+  js/data.js       BOARDS, POEM, PINS, REASONS, NOTIFS and JOKES
+  js/app.js        password hints/check, cake, poem, feed, search,
+                   pin interactions, Our Story and profile behavior
+
+EDITING A PIN (inside PINS in js/data.js)
+  {id:'p07', img:'m07', r:1.33, boards:['himachal'],
+   title:'Pahadi princess', cap:'Himachal saw her once...', by:'b',
+   c:[['b','A comment from Buddhu'], ['m','A comment from Bandar']]}
+
+  img     photo file name in img/ without .jpg
+  r       how tall the pin looks in the grid (height / width)
+  boards  which boards it appears on
+  by      'b' = Buddhu, 'm' = Bandar
+  c       comments: 'b' = Buddhu, 'm' = Bandar
+  tag     optional label on the photo, e.g. tag:'22 Nov 2025'
+
+  Text inside '...' that contains an apostrophe needs a backslash:
+  'Buddhu\'s favourite'
+
+ADDING A NEW PHOTO
+  1. Put the photo in img/, e.g. img/new1.jpg (keep it under ~300 KB)
+  2. Copy any photo pin line in PINS, give it a new id and img:'new1'
+  3. Save and refresh
+
+PUTTING CHANGES BACK ONLINE
+  Send the edited project files (not just index.html) back to Claude in
+  the same chat and ask to update the live link.
