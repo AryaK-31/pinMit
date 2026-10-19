@@ -5,7 +5,8 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
-    set(k, v) { try { localStorage.setItem(k, v); } catch (e) { } }
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) { } },
+    remove(k) { try { localStorage.removeItem(k); } catch (e) { } }
   };
   function toast(msg) {
     document.querySelectorAll('.toast').forEach(t => t.remove());
@@ -464,6 +465,26 @@
   }
   document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => { setView(b.dataset.view); window.scrollTo({ top: 0 }); }));
   $('#homeLogo').addEventListener('click', e => { e.preventDefault(); setView('feed'); showBoard('all'); window.scrollTo({ top: 0 }); });
+  $('#logoutBtn').addEventListener('click', () => {
+    store.remove(LS_IN);
+    store.remove(LS_CAKE);
+    $('#app').hidden = true;
+    $('#cake').hidden = true;
+    $('#poem').hidden = true;
+    $('#modal').hidden = true;
+    $('#notif').hidden = true;
+    document.body.style.overflow = '';
+    $('#login').hidden = false;
+    $('#loginForm').reset();
+    $('#reply').textContent = '';
+    $('#hints').innerHTML = '';
+    $('#tries').textContent = '';
+    $('#loginBtn').textContent = 'Log in';
+    wrong = 0;
+    hintsShown = 0;
+    window.scrollTo({ top: 0 });
+    $('#pw').focus();
+  });
 
   function openApp() {
     $('#app').hidden = false;

@@ -776,6 +776,13 @@ body::before {
   background: var(--soft)
 }
 
+.logout-button {
+  height: 40px;
+  padding-inline: 16px;
+  font-size: 14px;
+  flex: none
+}
+
 .badge {
   position: absolute;
   top: 4px;
